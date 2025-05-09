@@ -1,0 +1,117 @@
+/* =========  Tip Calculator – Vertical Layout Version  ========= */
+:root {
+  --clr-bg-gradient: linear-gradient(135deg, #e0f7fa 0%, #ffffff 50%, #f3e5f5 100%);
+  --clr-card-bg: #ffffff;
+  --clr-primary: #6200ee;
+  --clr-primary-light: #7e3ff2;
+  --clr-primary-dark: #4300b3;
+  --clr-text: #212121;
+  --clr-muted: #666;
+  --radius-lg: 1rem;
+  --radius-sm: 0.5rem;
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --transition: 0.25s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--clr-bg-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+  color: var(--clr-text);
+}
+
+/* Card wrapper */
+.card {
+  background: var(--clr-card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Heading */
+.card h1 {
+  font-size: 1.6rem;
+  text-align: center;
+  color: var(--clr-primary-dark);
+  font-weight: 700;
+}
+
+/* Form group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--clr-muted);
+}
+
+.form-group input[type="number"] {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--clr-primary);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--clr-primary-dark);
+  box-shadow: 0 0 0 3px rgba(98, 0, 238, 0.15);
+}
+
+/* Button */
+button#calc {
+  padding: 1rem;
+  background-color: var(--clr-primary);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition), transform 0.2s ease;
+}
+
+button#calc:hover {
+  background-color: var(--clr-primary-light);
+}
+
+button#calc:active {
+  transform: scale(0.97);
+}
+
+/* Result output */
+#result {
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: pre-line;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#result.show {
+  opacity: 1;
+  transform: translateY(0);
+}
